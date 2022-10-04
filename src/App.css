@@ -1,38 +1,124 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  width: 600px;
+}
+
+p {
+  display: inline;
+}
+
+.right {
+  position: absolute;
+  right: 150px;
+}
+
+button {
+  margin-left: 5px;
+  border-radius: 10px;
+  background-color: black;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+button:hover {
+  background-color: rgb(0, 153, 255);
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h1 {
+  text-align: center;
+  cursor: pointer;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  background-color: rgb(227, 230, 231);
+  border-bottom: 2px solid black;
+
+}
+
+section {
+  width: 1030px;
+  margin-left: 185px;
+}
+
+p:nth-child(1) {
+  margin-right: 80px;
+  font-weight: bold;
+}
+
+p:nth-child(2) {
+  margin-right: 150px;
+  font-weight: bold;
+}
+
+p:nth-child(3) {
+  margin-right: 140px;
+  font-weight: bold;
+}
+
+p:nth-child(4) {
+  margin-right: 100px;
+  font-weight: bold;
+}
+
+p:nth-child(5) {
+  margin-right: 200px;
+  font-weight: bold;
+}
+
+p:nth-child(6) {
+
+  font-weight: bold;
+}
+
+.items {
+  display: flex;
+  align-items: center;
+}
+
+img {
+  width: 120px;
+  height: 120px;
+}
+
+.name {
+  margin-left: 67px;
+  color: rgb(69, 185, 231);
+  text-decoration: underline;
+}
+
+.color {
+  margin-left: 40px;
+  color: rgb(69, 185, 231);
+  text-decoration: underline;
+
+}
+
+.stock {
+  position: absolute;
+  left: 750px;
+  color: green;
+}
+
+.cart {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 1100px;
+  cursor: pointer;
+}
+
+.price {
+  position: absolute;
+  left: 890px;
+}
+
+h5 {
+  text-align: right;
+  margin-right: 50px;
 }
