@@ -20,6 +20,7 @@ const Home = () => {
             }
             available[i] = count
         }
+        
 
     }
     const searchAttemp2 = () => {
@@ -51,46 +52,85 @@ const Home = () => {
         setSeat(ans)
     }
     const bookSeat2 = (y) => {
+        if(y==-1){
+            return
+        }
         for (var i = 0; i < 7; i++) {
             if (available[i] == y) {
                 var j = i
                 break;
             }
         }
-        if (y == 7) {
+        var count = 0
             for (var i = 0; i < 7; i++) {
                 if (data[j][i] == 0) {
+                   
                     data[j][i] = 1
                     ans.push(7 * j + i + 1)
+                    count++
+                    if(count==seats) break;
                 }
             }
+            
             setNewData(data)
-            setSeat(ans)
-        } else {
-            for (var i = 0; i < y + 1; i++) {
-                if (data[j][i] == 0) {
-                    data[j][i] = 1
-                    ans.push(7 * j + i + 1)
+            setSeat(ans)  
+            
+    }
+  
+    const bookSeat3 = () =>{
+        var seat = seats
+        var count = 0
+
+        for (var i = 0; i < 7; i++) {
+           
+            for (var j = 0; j < 7; j++) {
+                if (data[i][j] == 0) {
+                    count++
                 }
             }
-            setNewData(data)
-            setSeat(ans)
+            
         }
-
-
+        if(count>=seats){
+            for(var i =0;i<7;i++){
+                for(var j=0;j<7;j++){
+                    if(data[i][j]==0){
+                        data[i][j]=1
+                        seat--
+                        ans.push(7 * j + i + 1)
+                       
+                    }
+                    if(seat==0) break
+                }
+                if(seat==0) break
+               }
+               setNewData(data)
+               setSeat(ans)
+        }else{
+            var arr = [0]
+            setSeat(arr)
+        }
+      
+        
     }
     const searchItem = () => {
+        if(seats==0){
+            return
+        }
         searchAttemp1()
         var x = searchAttemp2()
         if (x != -1) {
             bookSeat1(x)
-        } else {
+        } else if(x!=0){
             var newArr = available.slice(0)
             var y = searchAttemp3(newArr)
-            bookSeat2(y)
+            if(y!=-1){
+                bookSeat2(y) 
+            }else{
+                bookSeat3()
+            }        
         }
-
-
+        
+                  
     }
     return (
         <>
@@ -99,7 +139,6 @@ const Home = () => {
                 <button className='btn btn-outline-dark' onClick={searchItem}>Book Now</button>
             </div>
             <div style={{ display: "flex", justifyContent: "center", margin: "20px", color: "white" }}>
-                <div className="box2 gray">Not Available</div>
                 <div className='box2' style={{ color: "black" }}>available</div>
                 <div className='box2 red'>booked</div>
             </div>
@@ -125,6 +164,7 @@ const Home = () => {
                 return (
                     <>
                         {item},
+
                     </>
                 )
             })}</p>
